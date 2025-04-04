@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>RateMyProf - Calificación de Profesores</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RateMyProf - Calificación de Profesores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
         :root {
             --primary: #4361ee;
             --primary-light: #4895ef;
@@ -309,478 +308,558 @@
     </style>
 </head>
 <body class="page-container">
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-<div class="container">
-<a class="navbar-brand d-flex align-items-center" href="#">
-<i class="fas fa-graduation-cap"></i>
-<span>RateMyProf</span>
-</a>
-<button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav me-auto">
-<li class="nav-item">
-<a class="nav-link active" data-bs-target="#profesores" data-bs-toggle="tab" href="#">Profesores</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" data-bs-target="#calificar" data-bs-toggle="tab" href="#">Calificar</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" data-bs-target="#misCal" data-bs-toggle="tab" href="#">Mis Calificaciones</a>
-</li>
-</ul>
-<ul class="navbar-nav">
-<li class="nav-item">
-<a class="nav-link" data-bs-target="#cuenta" data-bs-toggle="tab" href="#">
-<i class="fas fa-user me-1"></i> Mi Cuenta
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-graduation-cap"></i>
+                <span>RateMyProf</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-bs-target="#profesores" data-bs-toggle="tab">Profesores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-target="#calificar" data-bs-toggle="tab">Calificar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-target="#misCal" data-bs-toggle="tab">Mis Calificaciones</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-target="#cuenta" data-bs-toggle="tab">
+                            <i class="fas fa-user me-1"></i> Mi Cuenta
                         </a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<div class="content-wrap">
-<div class="container mt-4">
-<div class="tab-content">
-<div class="tab-pane fade show active" id="profesores">
-<h2 class="fw-bold mb-4 text-primary">Explora y Descubre Profesores</h2>
-<div class="input-group mb-4">
-<input class="form-control search-box" id="searchProfessor" placeholder="Busca por nombre, departamento o curso..." type="text"/>
-<button class="btn search-btn" type="button">
-<i class="fas fa-search text-white"></i>
-</button>
-</div>
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="profesoresLista">
-<div class="col">
-<div class="card h-100">
-<div class="card-header">
-<div class="d-flex align-items-center mb-2">
-<img alt="Profesor" class="profile-pic-sm me-2" src="/api/placeholder/100/100"/>
-<div>
-<h5 class="card-title mb-1">Prof. Carlos Rodríguez</h5>
-<p class="card-subtitle mb-0">Ciencias de la Computación</p>
-</div>
-</div>
-</div>
-<div class="card-body">
-<div class="d-flex">
-<div class="rating-circle">4.8</div>
-<div class="rating-stats flex-grow-1">
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Conocimiento</span>
-<span class="fw-medium text-primary">4.9</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 95%;"></div>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Pedagogía</span>
-<span class="fw-medium text-primary">4.7</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 90%;"></div>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Puntualidad</span>
-<span class="fw-medium text-primary">4.6</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 85%;"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="card-footer bg-white d-flex justify-content-between align-items-center">
-<a class="card-action" href="#" onclick="showProfessorDetails(1)">Ver Detalles</a>
-<span class="text-muted">42 calificaciones</span>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="card h-100">
-<div class="card-header">
-<div class="d-flex align-items-center mb-2">
-<img alt="Profesora" class="profile-pic-sm me-2" src="/api/placeholder/100/100"/>
-<div>
-<h5 class="card-title mb-1">Prof. Ana Martínez</h5>
-<p class="card-subtitle mb-0">Ingeniería de Software</p>
-</div>
-</div>
-</div>
-<div class="card-body">
-<div class="d-flex">
-<div class="rating-circle">4.2</div>
-<div class="rating-stats flex-grow-1">
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Conocimiento</span>
-<span class="fw-medium text-primary">4.6</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 92%;"></div>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Pedagogía</span>
-<span class="fw-medium text-primary">4.0</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 80%;"></div>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Puntualidad</span>
-<span class="fw-medium text-primary">4.1</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 82%;"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="card-footer bg-white d-flex justify-content-between align-items-center">
-<a class="card-action" href="#" onclick="showProfessorDetails(2)">Ver Detalles</a>
-<span class="text-muted">38 calificaciones</span>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="card h-100">
-<div class="card-header">
-<div class="d-flex align-items-center mb-2">
-<img alt="Profesor" class="profile-pic-sm me-2" src="/api/placeholder/100/100"/>
-<div>
-<h5 class="card-title mb-1">Prof. José Sánchez</h5>
-<p class="card-subtitle mb-0">Matemáticas Avanzadas</p>
-</div>
-</div>
-</div>
-<div class="card-body">
-<div class="d-flex">
-<div class="rating-circle">4.5</div>
-<div class="rating-stats flex-grow-1">
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Conocimiento</span>
-<span class="fw-medium text-primary">4.9</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 98%;"></div>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Pedagogía</span>
-<span class="fw-medium text-primary">4.2</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 84%;"></div>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Puntualidad</span>
-<span class="fw-medium text-primary">4.4</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 88%;"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="card-footer bg-white d-flex justify-content-between align-items-center">
-<a class="card-action" href="#" onclick="showProfessorDetails(3)">Ver Detalles</a>
-<span class="text-muted">31 calificaciones</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="tab-pane fade" id="calificar">
-<h2 class="fw-bold mb-4 text-primary">Calificar a un Profesor</h2>
-<div class="card">
-<div class="card-body p-4">
-<form>
-<div class="row mb-4">
-<div class="col-md-6 mb-3 mb-md-0">
-<label class="form-label fw-medium" for="selectProfessor">Profesor</label>
-<select class="form-select" id="selectProfessor">
-<option value="">-- Seleccionar Profesor --</option>
-<option value="1">Prof. Carlos Rodríguez</option>
-<option value="2">Prof. Ana Martínez</option>
-<option value="3">Prof. José Sánchez</option>
-<option value="4">Prof. María López</option>
-</select>
-</div>
-<div class="col-md-6">
-<label class="form-label fw-medium" for="course">Curso</label>
-<select class="form-select" id="course">
-<option value="">-- Seleccionar Curso --</option>
-<option value="prog1">Introducción a la Programación</option>
-<option value="prog2">Programación II</option>
-<option value="algo">Matemática Discreta</option>
-<option value="bd">Lenguaje de Bases de Datos</option>
-</select>
-</div>
-</div>
-<div class="row mb-4">
-<div class="col-md-4 mb-3 mb-md-0">
-<label class="form-label fw-medium mb-2">Conocimiento</label>
-<div class="star-rating" id="knowledgeRating">
-<input id="k5" name="knowledge" type="radio" value="5"/><label for="k5">★</label>
-<input id="k4" name="knowledge" type="radio" value="4"/><label for="k4">★</label>
-<input id="k3" name="knowledge" type="radio" value="3"><label for="k3">★</label>
-<input id="k2" name="knowledge" type="radio" value="2"/><label for="k2">★</label>
-<input id="k1" name="knowledge" type="radio" value="1"/><label for="k1">★</label>
-</input></div>
-</div>
-<div class="col-md-4 mb-3 mb-md-0">
-<label class="form-label fw-medium mb-2">Pedagogía</label>
-<div class="star-rating" id="pedagogyRating">
-<input id="p5" name="pedagogy" type="radio" value="5"/><label for="p5">★</label>
-<input id="p4" name="pedagogy" type="radio" value="4"/><label for="p4">★</label>
-<input id="p3" name="pedagogy" type="radio" value="3"/><label for="p3">★</label>
-<input id="p2" name="pedagogy" type="radio" value="2"/><label for="p2">★</label>
-<input id="p1" name="pedagogy" type="radio" value="1"/><label for="p1">★</label>
-</div>
-</div>
-<div class="col-md-4">
-<label class="form-label fw-medium mb-2">Puntualidad</label>
-<div class="star-rating" id="punctualityRating">
-<input id="pu5" name="punctuality" type="radio" value="5"/><label for="pu5">★</label>
-<input id="pu4" name="punctuality" type="radio" value="4"/><label for="pu4">★</label>
-<input id="pu3" name="punctuality" type="radio" value="3"/><label for="pu3">★</label>
-<input id="pu2" name="punctuality" type="radio" value="2"/><label for="pu2">★</label>
-<input id="pu1" name="punctuality" type="radio" value="1"/><label for="pu1">★</label>
-</div>
-</div>
-</div>
-<div class="mb-4">
-<label class="form-label fw-medium" for="comment">Comentario (opcional)</label>
-<textarea class="form-control" id="comment" placeholder="Comparte tu experiencia con este profesor..." rows="4"></textarea>
-</div>
-<button class="btn btn-primary px-4" onclick="submitRating()" type="button">
-<i class="fas fa-paper-plane me-2"></i>Enviar Calificación
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-wrap">
+        <div class="container mt-4">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="profesores">
+                    <h2 class="fw-bold mb-4 text-primary">Explora y Descubre Profesores</h2>
+                    
+                    <div class="input-group mb-4">
+                        <input type="text" class="form-control search-box" id="searchProfessor" placeholder="Busca por nombre, departamento o curso...">
+                        <button class="btn search-btn" type="button">
+                            <i class="fas fa-search text-white"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="profesoresLista">
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <img src="/api/placeholder/100/100" alt="Profesor" class="profile-pic-sm me-2">
+                                        <div>
+                                            <h5 class="card-title mb-1">Prof. Carlos Rodríguez</h5>
+                                            <p class="card-subtitle mb-0">Ciencias de la Computación</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="rating-circle">4.8</div>
+                                        <div class="rating-stats flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted">Conocimiento</span>
+                                                <span class="fw-medium text-primary">4.9</span>
+                                            </div>
+                                            <div class="rating-bar-container">
+                                                <div class="rating-bar" style="width: 95%;"></div>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted">Pedagogía</span>
+                                                <span class="fw-medium text-primary">4.7</span>
+                                            </div>
+                                            <div class="rating-bar-container">
+                                                <div class="rating-bar" style="width: 90%;"></div>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted">Puntualidad</span>
+                                                <span class="fw-medium text-primary">4.6</span>
+                                            </div>
+                                            <div class="rating-bar-container">
+                                                <div class="rating-bar" style="width: 85%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                                    <a href="#" class="card-action" onclick="showProfessorDetails(1)">Ver Detalles</a>
+                                    <span class="text-muted">42 calificaciones</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <img src="/api/placeholder/100/100" alt="Profesora" class="profile-pic-sm me-2">
+                                        <div>
+                                            <h5 class="card-title mb-1">Prof. Ana Martínez</h5>
+                                            <p class="card-subtitle mb-0">Ingeniería de Software</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="rating-circle">4.2</div>
+                                        <div class="rating-stats flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted">Conocimiento</span>
+                                                <span class="fw-medium text-primary">4.6</span>
+                                            </div>
+                                            <div class="rating-bar-container">
+                                                <div class="rating-bar" style="width: 92%;"></div>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted">Pedagogía</span>
+                                                <span class="fw-medium text-primary">4.0</span>
+                                            </div>
+                                            <div class="rating-bar-container">
+                                                <div class="rating-bar" style="width: 80%;"></div>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted">Puntualidad</span>
+                                                <span class="fw-medium text-primary">4.1</span>
+                                            </div>
+                                            <div class="rating-bar-container">
+                                                <div class="rating-bar" style="width: 82%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                                    <a href="#" class="card-action" onclick="showProfessorDetails(2)">Ver Detalles</a>
+                                    <span class="text-muted">38 calificaciones</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <img src="/api/placeholder/100/100" alt="Profesor" class="profile-pic-sm me-2">
+                                        <div>
+                                            <h5 class="card-title mb-1">Prof. José Sánchez</h5>
+                                            <p class="card-subtitle mb-0">Matemáticas Avanzadas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="rating-circle">4.5</div>
+                                        <div class="rating-stats flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted">Conocimiento</span>
+                                                <span class="fw-medium text-primary">4.9</span>
+                                            </div>
+                                            <div class="rating-bar-container">
+                                                <div class="rating-bar" style="width: 98%;"></div>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted">Pedagogía</span>
+                                                <span class="fw-medium text-primary">4.2</span>
+                                            </div>
+                                            <div class="rating-bar-container">
+                                                <div class="rating-bar" style="width: 84%;"></div>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted">Puntualidad</span>
+                                                <span class="fw-medium text-primary">4.4</span>
+                                            </div>
+                                            <div class="rating-bar-container">
+                                                <div class="rating-bar" style="width: 88%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                                    <a href="#" class="card-action" onclick="showProfessorDetails(3)">Ver Detalles</a>
+                                    <span class="text-muted">31 calificaciones</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="calificar">
+                    <h2 class="fw-bold mb-4 text-primary">Calificar a un Profesor</h2>
+                    
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <form>
+                                <div class="row mb-4">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <label class="form-label fw-medium" for="selectProfessor">Profesor</label>
+                                        <select class="form-select" id="selectProfessor">
+                                            <option value="">-- Seleccionar Profesor --</option>
+                                            <option value="1">Prof. Carlos Rodríguez</option>
+                                            <option value="2">Prof. Ana Martínez</option>
+                                            <option value="3">Prof. José Sánchez</option>
+                                            <option value="4">Prof. María López</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-medium" for="course">Curso</label>
+                                        <select class="form-select" id="course">
+                                            <option value="">-- Seleccionar Curso --</option>
+                                            <option value="prog1">Introducción a la Programación</option>
+                                            <option value="prog2">Programación II</option>
+                                            <option value="algo">Matemática Discreta</option>
+                                            <option value="bd">Lenguaje de Bases de Datos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-4 mb-3 mb-md-0">
+                                        <label class="form-label fw-medium mb-2">Conocimiento</label>
+                                        <div class="star-rating" id="knowledgeRating">
+                                            <input type="radio" id="k5" name="knowledge" value="5"/><label for="k5">★</label>
+                                            <input type="radio" id="k4" name="knowledge" value="4"/><label for="k4">★</label>
+                                            <input type="radio" id="k3" name="knowledge" value="3"/><label for="k3">★</label>
+                                            <input type="radio" id="k2" name="knowledge" value="2"/><label for="k2">★</label>
+                                            <input type="radio" id="k1" name="knowledge" value="1"/><label for="k1">★</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-4 mb-3 mb-md-0">
+                                        <label class="form-label fw-medium mb-2">Pedagogía</label>
+                                        <div class="star-rating" id="pedagogyRating">
+                                            <input type="radio" id="p5" name="pedagogy" value="5"/><label for="p5">★</label>
+                                            <input type="radio" id="p4" name="pedagogy" value="4"/><label for="p4">★</label>
+                                            <input type="radio" id="p3" name="pedagogy" value="3"/><label for="p3">★</label>
+                                            <input type="radio" id="p2" name="pedagogy" value="2"/><label for="p2">★</label>
+                                            <input type="radio" id="p1" name="pedagogy" value="1"/><label for="p1">★</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-4">
+                                        <label class="form-label fw-medium mb-2">Puntualidad</label>
+                                        <div class="star-rating" id="punctualityRating">
+                                            <input type="radio" id="pu5" name="punctuality" value="5"/><label for="pu5">★</label>
+                                            <input type="radio" id="pu4" name="punctuality" value="4"/><label for="pu4">★</label>
+                                            <input type="radio" id="pu3" name="punctuality" value="3"/><label for="pu3">★</label>
+                                            <input type="radio" id="pu2" name="punctuality" value="2"/><label for="pu2">★</label>
+                                            <input type="radio" id="pu1" name="punctuality" value="1"/><label for="pu1">★</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label fw-medium" for="comment">Comentario (opcional)</label>
+                                    <textarea class="form-control" id="comment" rows="4" placeholder="Comparte tu experiencia con este profesor..."></textarea>
+                                </div>
+                                
+                                <button type="button" class="btn btn-primary px-4" onclick="submitRating()">
+                                    <i class="fas fa-paper-plane me-2"></i>Enviar Calificación
                                 </button>
-</form>
-</div>
-</div>
-</div>
-<div class="tab-pane fade" id="misCal">
-<h2 class="fw-bold mb-4 text-primary">Mis Calificaciones</h2>
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-<div class="col">
-<div class="card h-100">
-<div class="card-header">
-<div class="d-flex align-items-center mb-2">
-<img alt="Profesor" class="profile-pic-sm me-2" src="/api/placeholder/100/100"/>
-<div>
-<h5 class="card-title mb-1">Prof. Carlos Rodríguez</h5>
-<p class="card-subtitle mb-0">Introducción a la Programación</p>
-</div>
-</div>
-</div>
-<div class="card-body">
-<div class="rating-stats">
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Conocimiento</span>
-<span class="fw-medium text-primary">5.0</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 100%;"></div>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Pedagogía</span>
-<span class="fw-medium text-primary">4.0</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 80%;"></div>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Puntualidad</span>
-<span class="fw-medium text-primary">5.0</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 100%;"></div>
-</div>
-</div>
-<div class="mt-3 pt-3 border-top">
-<p class="mb-0 text-muted fst-italic">"Excelente profesor, muy conocedor del tema y siempre dispuesto a ayudar."</p>
-</div>
-</div>
-<div class="card-footer bg-white d-flex justify-content-between align-items-center">
-<span class="text-muted">Calificado el 12/03/2023</span>
-<button class="btn btn-sm btn-outline-primary">
-<i class="fas fa-edit me-1"></i>Editar
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="misCal">
+                    <h2 class="fw-bold mb-4 text-primary">Mis Calificaciones</h2>
+                    
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <img src="/api/placeholder/100/100" alt="Profesor" class="profile-pic-sm me-2">
+                                        <div>
+                                            <h5 class="card-title mb-1">Prof. Carlos Rodríguez</h5>
+                                            <p class="card-subtitle mb-0">Introducción a la Programación</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="rating-stats">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted">Conocimiento</span>
+                                            <span class="fw-medium text-primary">5.0</span>
+                                        </div>
+                                        <div class="rating-bar-container">
+                                            <div class="rating-bar" style="width: 100%;"></div>
+                                        </div>
+                                        
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted">Pedagogía</span>
+                                            <span class="fw-medium text-primary">4.0</span>
+                                        </div>
+                                        <div class="rating-bar-container">
+                                            <div class="rating-bar" style="width: 80%;"></div>
+                                        </div>
+                                        
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted">Puntualidad</span>
+                                            <span class="fw-medium text-primary">5.0</span>
+                                        </div>
+                                        <div class="rating-bar-container">
+                                            <div class="rating-bar" style="width: 100%;"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-3 pt-3 border-top">
+                                        <p class="mb-0 text-muted fst-italic">"Excelente profesor, muy conocedor del tema y siempre dispuesto a ayudar."</p>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                                    <span class="text-muted">Calificado el 12/03/2023</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-edit me-1"></i>Editar
                                     </button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="tab-pane fade" id="cuenta">
-<h2 class="fw-bold mb-4 text-primary">Mi Cuenta</h2>
-<div class="row">
-<div class="col-md-4 mb-4">
-<div class="card h-100">
-<div class="card-body text-center p-4">
-<div class="upload-btn-wrapper mb-3">
-<img alt="Foto de perfil" class="profile-pic-upload" src="/api/placeholder/150/150"/>
-<div class="custom-tooltip">
-<i class="fas fa-camera"></i>
-</div>
-<input accept="image/*" name="profilePic" type="file"/>
-</div>
-<h4 class="mb-1">Juan Pérez</h4>
-<p class="text-muted">Estudiante de Ingeniería</p>
-<hr class="my-3"/>
-<div class="d-flex justify-content-between">
-<div>
-<p class="mb-0 text-muted">Calificaciones</p>
-<h4>8</h4>
-</div>
-<div>
-<p class="mb-0 text-muted">Miembro desde</p>
-<h4>2023</h4>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card">
-<div class="card-body p-4">
-<h4 class="mb-4">Información Personal</h4>
-<form>
-<div class="row mb-3">
-<div class="col-md-6 mb-3 mb-md-0">
-<label class="form-label fw-medium" for="firstName">Nombre</label>
-<input class="form-control" id="firstName" type="text" value="Juan"/>
-</div>
-<div class="col-md-6">
-<label class="form-label fw-medium" for="lastName">Apellido</label>
-<input class="form-control" id="lastName" type="text" value="Pérez"/>
-</div>
-</div>
-<div class="mb-3">
-<label class="form-label fw-medium" for="email">Correo Electrónico</label>
-<input class="form-control" id="email" type="email" value="juan.perez@ejemplo.com"/>
-</div>
-<div class="mb-3">
-<label class="form-label fw-medium" for="university">Universidad</label>
-<input class="form-control" id="university" type="text" value="Universidad Nacional"/>
-</div>
-<div class="mb-4">
-<label class="form-label fw-medium" for="carrera">Carrera</label>
-<input class="form-control" id="carrera" type="text" value="Ingeniería Informática"/>
-</div>
-<h4 class="mb-3 mt-4">Cambiar Contraseña</h4>
-<div class="mb-3">
-<label class="form-label fw-medium" for="currentPassword">Contraseña Actual</label>
-<input class="form-control" id="currentPassword" type="password"/>
-</div>
-<div class="mb-3">
-<label class="form-label fw-medium" for="newPassword">Nueva Contraseña</label>
-<input class="form-control" id="newPassword" type="password"/>
-</div>
-<div class="mb-4">
-<label class="form-label fw-medium" for="confirmPassword">Confirmar Contraseña</label>
-<input class="form-control" id="confirmPassword" type="password"/>
-</div>
-<div class="d-flex justify-content-end">
-<button class="btn btn-primary px-4" type="button">
-<i class="fas fa-save me-2"></i>Guardar Cambios
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="cuenta">
+                    <h2 class="fw-bold mb-4 text-primary">Mi Cuenta</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center p-4">
+                                    <div class="upload-btn-wrapper mb-3">
+                                        <img src="/api/placeholder/150/150" alt="Foto de perfil" class="profile-pic-upload">
+                                        <div class="custom-tooltip">
+                                            <i class="fas fa-camera"></i>
+                                        </div>
+                                        <input type="file" name="profilePic" accept="image/*" />
+                                    </div>
+                                    <h4 class="mb-1">Juan Pérez</h4>
+                                    <p class="text-muted">Estudiante de Ingeniería</p>
+                                    <hr class="my-3">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <p class="mb-0 text-muted">Miembro desde</p>
+                                            <h4>2023</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-body p-4">
+                                    <h4 class="mb-4">Información Personal</h4>
+                                    <form>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6 mb-3 mb-md-0">
+                                                <label for="firstName" class="form-label fw-medium">Nombre</label>
+                                                <input type="text" class="form-control" id="firstName" value="Juan">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="lastName" class="form-label fw-medium">Apellido</label>
+                                                <input type="text" class="form-control" id="lastName" value="Pérez">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label fw-medium">Correo Electrónico</label>
+                                            <input type="email" class="form-control" id="email" value="juan.perez@ejemplo.com">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="university" class="form-label fw-medium">Universidad</label>
+                                            <input type="text" class="form-control" id="university" value="Universidad Nacional">
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label for="carrera" class="form-label fw-medium">Carrera</label>
+                                            <input type="text" class="form-control" id="carrera" value="Ingeniería Informática">
+                                        </div>
+                                        
+                                        <h4 class="mb-3 mt-4">Cambiar Contraseña</h4>
+                                        
+                                        <div class="mb-3">
+                                            <label for="currentPassword" class="form-label fw-medium">Contraseña Actual</label>
+                                            <input type="password" class="form-control" id="currentPassword">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="newPassword" class="form-label fw-medium">Nueva Contraseña</label>
+                                            <input type="password" class="form-control" id="newPassword">
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label for="confirmPassword" class="form-label fw-medium">Confirmar Contraseña</label>
+                                            <input type="password" class="form-control" id="confirmPassword">
+                                        </div>
+                                        
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-primary px-4">
+                                                <i class="fas fa-save me-2"></i>Guardar Cambios
                                             </button>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div aria-hidden="true" class="modal fade" id="professorDetailsModal" tabindex="-1">
-<div class="modal-dialog modal-lg">
-<div class="modal-content">
-<div class="modal-header bg-primary text-white">
-<h5 class="modal-title">Detalles del Profesor</h5>
-<button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal" type="button"></button>
-</div>
-<div class="modal-body">
-<div class="text-center mb-4">
-<img alt="Profesor" class="profile-pic mb-3" src="/api/placeholder/120/120"/>
-<h4 id="modalProfName">Prof. Carlos Rodríguez</h4>
-<p class="text-muted" id="modalProfDept">Ciencias de la Computación</p>
-</div>
-<div class="row mb-4">
-<div class="col-md-4 text-center">
-<div class="rating-circle mx-auto">4.8</div>
-<p class="mt-2 mb-0 fw-medium">Calificación General</p>
-</div>
-<div class="col-md-8">
-<div class="rating-stats">
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Conocimiento</span>
-<span class="fw-medium text-primary">4.9</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 95%;"></div>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Pedagogía</span>
-<span class="fw-medium text-primary">4.7</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 90%;"></div>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-muted">Puntualidad</span>
-<span class="fw-medium text-primary">4.6</span>
-</div>
-<div class="rating-bar-container">
-<div class="rating-bar" style="width: 85%;"></div>
-</div>
-</div>
-</div>
-</div>
-<h5 class="mb-3">Comentarios de Estudiantes</h5>
-<div class="card mb-3">
-<div class="card-body">
-<div class="d-flex mb-3">
-<img alt="Estudiante" class="rounded-circle me-2" src="/api/placeholder/50/50" width="40"/>
-<div>
-<h6 class="mb-0">María García</h6>
-<small class="text-muted">Programación II - 10/03/2023</small>
-</div>
-</div>
-<p class="mb-0">Excelente profesor. Sus clases son muy claras y siempre está dispuesto a resolver dudas. Sus tareas son desafiantes pero justas.</p>
-</div>
-</div>
-<div class="card mb-3">
-<div class="card-body">
-<div class="d-flex mb-3">
-<img alt="Estudiante" class="rounded-circle me-2" src="/api/placeholder/50/50" width="40"/>
-<div>
-<h6 class="mb-0">Pedro López</h6>
-<small class="text-muted">Introducción a la Programación - 05/02/2023</small>
-</div>
-</div>
-<p class="mb-0">Uno de los mejores profesores que he tenido. Explica muy bien y tiene mucha paciencia con los estudiantes que empiezan desde cero.</p>
-</div>
-</div>
-</div>
-<div class="modal-footer">
-<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cerrar</button>
-<button class="btn btn-primary" onclick="goToRatingForm()" type="button">Calificar Profesor</button>
-</div>
-</div>
-</div>
-</div>
-<footer class="py-3 bg-dark text-white">
-<div class="container text-center">
-<div class="d-flex justify-content-center align-items-center mb-2">
-<i class="fas fa-graduation-cap me-2"></i>
-<span>RateMyProf</span>
-</div>
-<div>© 2025 RateMyProf - Todos los derechos reservados</div>
-</div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="professorDetailsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Detalles del Profesor</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <img src="/api/placeholder/120/120" alt="Profesor" class="profile-pic mb-3">
+                        <h4 id="modalProfName">Prof. Carlos Rodríguez</h4>
+                        <p class="text-muted" id="modalProfDept">Ciencias de la Computación</p>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-center">
+                            <div class="rating-circle mx-auto">4.8</div>
+                            <p class="mt-2 mb-0 fw-medium">Calificación General</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="rating-stats">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted">Conocimiento</span>
+                                    <span class="fw-medium text-primary">4.9</span>
+                                </div>
+                                <div class="rating-bar-container">
+                                    <div class="rating-bar" style="width: 95%;"></div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted">Pedagogía</span>
+                                    <span class="fw-medium text-primary">4.7</span>
+                                </div>
+                                <div class="rating-bar-container">
+                                    <div class="rating-bar" style="width: 90%;"></div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted">Puntualidad</span>
+                                    <span class="fw-medium text-primary">4.6</span>
+                                </div>
+                                <div class="rating-bar-container">
+                                    <div class="rating-bar" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5 class="mb-3">Comentarios de Estudiantes</h5>
+                    
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <img src="/api/placeholder/50/50" alt="Estudiante" class="rounded-circle me-2" width="40">
+                                <div>
+                                    <h6 class="mb-0">María García</h6>
+                                    <small class="text-muted">Programación II - 10/03/2023</small>
+                                </div>
+                            </div>
+                            <p class="mb-0">Excelente profesor. Sus clases son muy claras y siempre está dispuesto a resolver dudas. Sus tareas son desafiantes pero justas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <img src="/api/placeholder/50/50" alt="Estudiante" class="rounded-circle me-2" width="40">
+                                <div>
+                                    <h6 class="mb-0">Pedro López</h6>
+                                    <small class="text-muted">Introducción a la Programación - 05/02/2023</small>
+                                </div>
+                            </div>
+                            <p class="mb-0">Uno de los mejores profesores que he tenido. Explica muy bien y tiene mucha paciencia con los estudiantes que empiezan desde cero.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="goToRatingForm()">Calificar Profesor</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="editReviewModal" tabindex="-1" aria-labelledby="editReviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="editReviewModalLabel">Editar Calificación</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editReviewForm">
+                        <input type="hidden" id="editReviewId"/>
+                        <div class="mb-3">
+                            <label for="editCurso" class="form-label">Curso</label>
+                            <input type="text" class="form-control" id="editCurso">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Conocimiento</label>
+                            <input type="number" class="form-control" id="editConocimiento" min="1" max="5">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Pedagogía</label>
+                            <input type="number" class="form-control" id="editPedagogia" min="1" max="5">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Puntualidad</label>
+                            <input type="number" class="form-control" id="editPuntualidad" min="1" max="5">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editComentario" class="form-label">Comentario</label>
+                            <textarea class="form-control" id="editComentario" rows="3"></textarea>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="py-3 bg-dark text-white">
+        <div class="container text-center">
+            <div class="d-flex justify-content-center align-items-center mb-2">
+                <i class="fas fa-graduation-cap me-2"></i>
+                <span>RateMyProf</span>
+            </div>
+            <div>© 2025 RateMyProf - Todos los derechos reservados</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
         // Función para mostrar detalles del profesor en modal
         function showProfessorDetails(profId) {
             // Aquí puedes cargar los datos del profesor según el ID
@@ -877,270 +956,259 @@
                     document.querySelector(target).classList.add('show', 'active');
                 });
             });
+            
+            // Cargar datos iniciales
+            try {
+                fetchProfessors();
+                cargarSelectProfesores();
+                cargarMisCalificaciones();
+            } catch (error) {
+                console.error("Error al cargar datos iniciales:", error);
+            }
         });
+    </script>
 
-         {
-    try {
-        const response = await fetch("https://localhost:7267/api/Profesores");
-        const data = await response.json();
+    <script>
+        // Función para cargar profesores desde la API
+        async function fetchProfessors() {
+            try {
+                const response = await fetch("https://localhost:7267/api/Profesores");
+                const data = await response.json();
 
-        const container = document.getElementById("profesoresLista");
-        container.innerHTML = ''; // Limpia contenido anterior
+                const container = document.getElementById("profesoresLista");
+                container.innerHTML = ''; // Limpia contenido anterior
 
-        data.forEach(prof => {
-            const card = document.createElement("div");
-            card.className = "col";
-            card.innerHTML = `
-                <div class="card h-100">
-                    <div class="card-header">
-                        <div class="d-flex align-items-center mb-2">
-                            <img src="/api/placeholder/100/100" alt="Profesor" class="profile-pic-sm me-2">
-                            <div>
-                                <h5 class="card-title mb-1">${prof.nombre}</h5>
-                                <p class="card-subtitle mb-0">${prof.departamento}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <div class="rating-circle">${prof.promedioGeneral?.toFixed(1) || "N/A"}</div>
-                            <div class="rating-stats flex-grow-1 ms-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="text-muted">Conocimiento</span>
-                                    <span class="fw-medium text-primary">${prof.promedioConocimiento?.toFixed(1) || "-"}</span>
-                                </div>
-                                <div class="rating-bar-container">
-                                    <div class="rating-bar" style="width: ${prof.promedioConocimiento * 20 || 0}%;"></div>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="text-muted">Pedagogía</span>
-                                    <span class="fw-medium text-primary">${prof.promedioPedagogia?.toFixed(1) || "-"}</span>
-                                </div>
-                                <div class="rating-bar-container">
-                                    <div class="rating-bar" style="width: ${prof.promedioPedagogia * 20 || 0}%;"></div>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="text-muted">Puntualidad</span>
-                                    <span class="fw-medium text-primary">${prof.promedioPuntualidad?.toFixed(1) || "-"}</span>
-                                </div>
-                                <div class="rating-bar-container">
-                                    <div class="rating-bar" style="width: ${prof.promedioPuntualidad * 20 || 0}%;"></div>
+                data.forEach(prof => {
+                    const card = document.createElement("div");
+                    card.className = "col";
+                    card.innerHTML = `
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="/api/placeholder/100/100" alt="Profesor" class="profile-pic-sm me-2">
+                                    <div>
+                                        <h5 class="card-title mb-1">${prof.nombre}</h5>
+                                        <p class="card-subtitle mb-0">${prof.departamento}</p>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="rating-circle">${prof.promedioGeneral?.toFixed(1) || "N/A"}</div>
+                                    <div class="rating-stats flex-grow-1 ms-3">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted">Conocimiento</span>
+                                            <span class="fw-medium text-primary">${prof.promedioConocimiento?.toFixed(1) || "-"}</span>
+                                        </div>
+                                        <div class="rating-bar-container">
+                                            <div class="rating-bar" style="width: ${prof.promedioConocimiento * 20 || 0}%;"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted">Pedagogía</span>
+                                            <span class="fw-medium text-primary">${prof.promedioPedagogia?.toFixed(1) || "-"}</span>
+                                        </div>
+                                        <div class="rating-bar-container">
+                                            <div class="rating-bar" style="width: ${prof.promedioPedagogia * 20 || 0}%;"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted">Puntualidad</span>
+                                            <span class="fw-medium text-primary">${prof.promedioPuntualidad?.toFixed(1) || "-"}</span>
+                                        </div>
+                                        <div class="rating-bar-container">
+                                            <div class="rating-bar" style="width: ${prof.promedioPuntualidad * 20 || 0}%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                                <a href="#" class="card-action" onclick="showProfessorDetails(${prof.id})">Ver Detalles</a>
+                                <span class="text-muted">${prof.totalResenas || 0} calificaciones</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                        <a href="#" class="card-action" onclick="showProfessorDetails(${prof.id})">Ver Detalles</a>
-                        <span class="text-muted">${prof.totalResenas || 0} calificaciones</span>
-                    </div>
-                </div>
-            `;
-            container.appendChild(card);
-        });
+                    `;
+                    container.appendChild(card);
+                });
 
-    } catch (error) {
-        console.error("Error al obtener profesores:", error);
-    }
-}
-
-async function cargarSelectProfesores() {
-    try {
-        const response = await fetch("https://localhost:7267/api/Profesores");
-        const data = await response.json();
-
-        const select = document.getElementById("selectProfessor");
-        select.innerHTML = `<option value="">-- Seleccionar Profesor --</option>`;
-        data.forEach(prof => {
-            const option = document.createElement("option");
-            option.value = prof.id;
-            option.textContent = prof.nombre;
-            select.appendChild(option);
-        });
-
-    } catch (error) {
-        console.error("Error al cargar select de profesores:", error);
-    }
-}
-</script>
-<script>
-async function cargarMisCalificaciones() {
-    try {
-        const response = await fetch("https://localhost:7267/api/ReseñasProfesores/mis-reseñas"); // Modifica si tu endpoint es distinto
-        const data = await response.json();
-
-        const container = document.querySelector('#misCal .row');
-        container.innerHTML = "";
-
-        if (data.length === 0) {
-            container.innerHTML = "<p class='text-muted'>Aún no has calificado a ningún profesor.</p>";
-            return;
+            } catch (error) {
+                console.error("Error al obtener profesores:", error);
+            }
         }
 
-        data.forEach(r => {
-            const card = document.createElement("div");
-            card.className = "col";
-            card.innerHTML = `
-                <div class="card h-100">
-                    <div class="card-header">
-                        <div class="d-flex align-items-center mb-2">
-                            <img src="/api/placeholder/100/100" alt="Profesor" class="profile-pic-sm me-2">
-                            <div>
-                                <h5 class="card-title mb-1">${r.profesorNombre}</h5>
-                                <p class="card-subtitle mb-0">${r.curso}</p>
+        // Función para cargar profesores en el select
+        async function cargarSelectProfesores() {
+            try {
+                const response = await fetch("https://localhost:7267/api/Profesores");
+                const data = await response.json();
+
+                const select = document.getElementById("selectProfessor");
+                select.innerHTML = `<option value="">-- Seleccionar Profesor --</option>`;
+                data.forEach(prof => {
+                    const option = document.createElement("option");
+                    option.value = prof.id;
+                    option.textContent = prof.nombre;
+                    select.appendChild(option);
+                });
+
+            } catch (error) {
+                console.error("Error al cargar select de profesores:", error);
+            }
+        }
+
+        // Función para cargar mis calificaciones desde la API
+        async function cargarMisCalificaciones() {
+            try {
+                const response = await fetch("https://localhost:7267/api/ReseñasProfesores/mis-reseñas"); 
+                const data = await response.json();
+
+                const container = document.querySelector('#misCal .row');
+                container.innerHTML = "";
+
+                if (data.length === 0) {
+                    container.innerHTML = "<div class='col-12'><p class='text-muted'>Aún no has calificado a ningún profesor.</p></div>";
+                    return;
+                }
+
+                data.forEach(r => {
+                    const card = document.createElement("div");
+                    card.className = "col";
+                    card.innerHTML = `
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="/api/placeholder/100/100" alt="Profesor" class="profile-pic-sm me-2">
+                                    <div>
+                                        <h5 class="card-title mb-1">${r.profesorNombre}</h5>
+                                        <p class="card-subtitle mb-0">${r.curso}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="rating-stats">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted">Conocimiento</span>
+                                        <span class="fw-medium text-primary">${r.conocimiento}</span>
+                                    </div>
+                                    <div class="rating-bar-container">
+                                        <div class="rating-bar" style="width: ${r.conocimiento * 20}%;"></div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted">Pedagogía</span>
+                                        <span class="fw-medium text-primary">${r.pedagogia}</span>
+                                    </div>
+                                    <div class="rating-bar-container">
+                                        <div class="rating-bar" style="width: ${r.pedagogia * 20}%;"></div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted">Puntualidad</span>
+                                        <span class="fw-medium text-primary">${r.puntualidad}</span>
+                                    </div>
+                                    <div class="rating-bar-container">
+                                        <div class="rating-bar" style="width: ${r.puntualidad * 20}%;"></div>
+                                    </div>
+                                </div>
+
+                                ${r.comentario ? `<div class="mt-3 pt-3 border-top">
+                                    <p class="mb-0 text-muted fst-italic">"${r.comentario}"</p>
+                                </div>` : ""}
+                            </div>
+                            <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Calificado el ${r.fecha || "recientemente"}</span>
+                                <div>
+                                    <button class="btn btn-sm btn-outline-primary me-2" onclick="abrirModalEdicion(${r.id}, '${r.curso}', ${r.conocimiento}, ${r.pedagogia}, ${r.puntualidad}, '${r.comentario || ''}')">
+                                        <i class="fas fa-edit me-1"></i>Editar
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="eliminarResena(${r.id})">
+                                        <i class="fas fa-trash-alt me-1"></i>Eliminar
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="rating-stats">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-muted">Conocimiento</span>
-                                <span class="fw-medium text-primary">${r.conocimiento}</span>
-                            </div>
-                            <div class="rating-bar-container">
-                                <div class="rating-bar" style="width: ${r.conocimiento * 20}%;"></div>
-                            </div>
+                    `;
+                    container.appendChild(card);
+                });
 
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-muted">Pedagogía</span>
-                                <span class="fw-medium text-primary">${r.pedagogia}</span>
-                            </div>
-                            <div class="rating-bar-container">
-                                <div class="rating-bar" style="width: ${r.pedagogia * 20}%;"></div>
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-muted">Puntualidad</span>
-                                <span class="fw-medium text-primary">${r.puntualidad}</span>
-                            </div>
-                            <div class="rating-bar-container">
-                                <div class="rating-bar" style="width: ${r.puntualidad * 20}%;"></div>
-                            </div>
-                        </div>
-
-                        ${r.comentario ? `<div class="mt-3 pt-3 border-top">
-                            <p class="mb-0 text-muted fst-italic">"${r.comentario}"</p>
-                        </div>` : ""}
-                    </div>
-                    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                        <span class="text-muted">Calificado el ${r.fecha || "recientemente"}</span>
-                        <button class="btn btn-sm btn-outline-primary me-2" onclick="abrirModalEdicion(r)"><i class="fas fa-edit me-1"></i>Editar</button><button class="btn btn-sm btn-outline-danger" onclick="eliminarResena(r.id)"><i class="fas fa-trash-alt me-1"></i>Eliminar</button>
-                            <i class="fas fa-edit me-1"></i>Editar
-                        </button>
-                    </div>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-
-    } catch (error) {
-        console.error("Error al cargar mis calificaciones:", error);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    fetchProfessors();
-    cargarSelectProfesores();
-    cargarMisCalificaciones(););
-</script>
-<div aria-hidden="true" aria-labelledby="editReviewModalLabel" class="modal fade" id="editReviewModal" tabindex="-1">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header bg-primary text-white">
-<h5 class="modal-title" id="editReviewModalLabel">Editar Calificación</h5>
-<button aria-label="Cerrar" class="btn-close btn-close-white" data-bs-dismiss="modal" type="button"></button>
-</div>
-<div class="modal-body">
-<form id="editReviewForm">
-<input id="editReviewId" type="hidden"/>
-<div class="mb-3">
-<label class="form-label" for="editCurso">Curso</label>
-<input class="form-control" id="editCurso" type="text"/>
-</div>
-<div class="mb-3">
-<label class="form-label">Conocimiento</label>
-<input class="form-control" id="editConocimiento" max="5" min="1" type="number"/>
-</div>
-<div class="mb-3">
-<label class="form-label">Pedagogía</label>
-<input class="form-control" id="editPedagogia" max="5" min="1" type="number"/>
-</div>
-<div class="mb-3">
-<label class="form-label">Puntualidad</label>
-<input class="form-control" id="editPuntualidad" max="5" min="1" type="number"/>
-</div>
-<div class="mb-3">
-<label class="form-label" for="editComentario">Comentario</label>
-<textarea class="form-control" id="editComentario" rows="3"></textarea>
-</div>
-<div class="text-end">
-<button class="btn btn-primary" type="submit">Guardar Cambios</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div><script>
-function abrirModalEdicion(reseña) {
-    document.getElementById('editReviewId').value = reseña.id;
-    document.getElementById('editCurso').value = reseña.curso;
-    document.getElementById('editConocimiento').value = reseña.conocimiento;
-    document.getElementById('editPedagogia').value = reseña.pedagogia;
-    document.getElementById('editPuntualidad').value = reseña.puntualidad;
-    document.getElementById('editComentario').value = reseña.comentario || '';
-    const modal = new bootstrap.Modal(document.getElementById('editReviewModal'));
-    modal.show();
-}
-
-document.getElementById('editReviewForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const id = document.getElementById('editReviewId').value;
-    const data = {
-        id: parseInt(id),
-        curso: document.getElementById('editCurso').value,
-        conocimiento: parseInt(document.getElementById('editConocimiento').value),
-        pedagogia: parseInt(document.getElementById('editPedagogia').value),
-        puntualidad: parseInt(document.getElementById('editPuntualidad').value),
-        comentario: document.getElementById('editComentario').value
-    };
-
-    try {
-        const res = await fetch(`https://localhost:7267/api/ReseñasProfesores/${id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-
-        if (res.ok) {
-            alert('Reseña actualizada con éxito');
-            bootstrap.Modal.getInstance(document.getElementById('editReviewModal')).hide();
-            cargarMisCalificaciones();
-        } else {
-            alert('Error al actualizar la reseña');
+            } catch (error) {
+                console.error("Error al cargar mis calificaciones:", error);
+            }
         }
-    } catch (err) {
-        console.error(err);
-        alert('No se pudo conectar con la API');
-    }
-});
-</script><script>
-async function eliminarResena(id) {
-    if (!confirm("¿Estás seguro de que deseas eliminar esta calificación?")) return;
 
-    try {
-        const res = await fetch(`https://localhost:7267/api/ReseñasProfesores/${id}`, {
-            method: 'DELETE'
-        });
-
-        if (res.ok) {
-            alert("Reseña eliminada con éxito.");
-            cargarMisCalificaciones();
-        } else {
-            alert("Error al eliminar la reseña.");
+        // Función para abrir modal de edición
+        function abrirModalEdicion(id, curso, conocimiento, pedagogia, puntualidad, comentario) {
+            document.getElementById('editReviewId').value = id;
+            document.getElementById('editCurso').value = curso;
+            document.getElementById('editConocimiento').value = conocimiento;
+            document.getElementById('editPedagogia').value = pedagogia;
+            document.getElementById('editPuntualidad').value = puntualidad;
+            document.getElementById('editComentario').value = comentario;
+            const modal = new bootstrap.Modal(document.getElementById('editReviewModal'));
+            modal.show();
         }
-    } catch (error) {
-        console.error("Error al eliminar:", error);
-        alert("No se pudo conectar con la API.");
-    }
-}
-</script></body>
-</html>
+
+        // Función para eliminar reseña
+        async function eliminarResena(id) {
+            if (!confirm("¿Estás seguro de que deseas eliminar esta calificación?")) return;
+
+            try {
+                const res = await fetch(`https://localhost:7267/api/ReseñasProfesores/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (res.ok) {
+                    alert("Reseña eliminada con éxito.");
+                    cargarMisCalificaciones();
+                } else {
+                    alert("Error al eliminar la reseña.");
+                }
+            } catch (error) {
+                console.error("Error al eliminar:", error);
+                alert("No se pudo conectar con la API.");
+            }
+        }
+
+        // Event listener para el formulario de edición
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('editReviewForm');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const id = document.getElementById('editReviewId').value;
+                    const data = {
+                        id: parseInt(id),
+                        curso: document.getElementById('editCurso').value,
+                        conocimiento: parseInt(document.getElementById('editConocimiento').value),
+                        pedagogia: parseInt(document.getElementById('editPedagogia').value),
+                        puntualidad: parseInt(document.getElementById('editPuntualidad').value),
+                        comentario: document.getElementById('editComentario').value
+                    };
+
+                    try {
+                        const res = await fetch(`https://localhost:7267/api/ReseñasProfesores/${id}`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        });
+
+                        if (res.ok) {
+                            alert('Reseña actualizada con éxito');
+                            bootstrap.Modal.getInstance(document.getElementById('editReviewModal')).hide();
+                            cargarMisCalificaciones();
+                        } else {
+                            alert('Error al actualizar la reseña');
+                        }
+                    } catch (err) {
+                        console.error(err);
+                        alert('No se pudo conectar con la API');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>d">Calificaciones</p>
+                                            <h4>8</h4>
+                                        </div>
+                                        <div>
+                                            <p class="mb-0 text-mute
